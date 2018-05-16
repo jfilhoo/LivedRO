@@ -1,5 +1,5 @@
 //===== rAthena Script ======================================= 
-//= Ep 10+ Novice Training Grounds
+//= Campo de Treinamento de Aprendizes
 //===== By: ================================================== 
 //= Dr.Evil & MasterOfMuppets
 //===== Current Version: ===================================== 
@@ -23,12 +23,13 @@
 //= 2.3 Added fix to Hanson from GM-windsor- and Saithis. [L0ne_W0lf]
 //= 2.3a Correct a wrong variable name. (bugreport:2293) [Samuray22]
 //= 2.4 Corrected an error in Hanson. (bugreport:2374) [L0ne_W0lf]
+//= 2.5 Traduzido por Rarord.
 //============================================================ 
 
 // Bulletin Board
 new_1-1,66,114,4	script	Bulletin Board#nv	111,{
 	mes "^FF0000=================================^000000";
-	mes "^FF0000 ^000000 ^E40CAA[Welcome]^CC0000 to ^FF9000Novice^7FFF00 Training ^00FF00Grounds ^E40CAA[Welcome]^FF0000^000000";
+	mes "^FF0000 ^000000 ^E40CAA[Bem Vindo]^CC0000 ao ^FF9000Campo^7FFF00 de Trinamento ^00FF00de Aprendizes ^E40CAA[Bem Vindo]^FF0000^000000";
 	mes "^FF0000=================================^000000";
 	close;
 }
@@ -39,9 +40,9 @@ new_4-1,66,114,4	duplicate(Bulletin Board#nv)	Bulletin Board#nv4	111
 new_5-1,66,114,4	duplicate(Bulletin Board#nv)	Bulletin Board#nv5	111
 
 new_1-1,144,116,2	script	Guard#nv1	105,{
-	mes "[Training Grounds Guard]";
-	mes "Welcome to the Training Grounds.";
-	mes "You are now in the outer court yard. Please go inside the castle to begin your training.";
+	mes "[Guarda do Campo de Treinamento]";
+mes "Bem-vindo ao Campo de Treinamento.";
+mes "Agora você está no pátio externo. Por favor, vá para dentro do castelo para começar seu treinamento.";
 	close;
 }
 
@@ -51,78 +52,78 @@ new_4-1,144,116,2	duplicate(Guard#nv1)	Guard#nv4-1	105
 new_5-1,144,116,2	duplicate(Guard#nv1)	Guard#nv5-1	105
 
 new_1-1,144,107,2	script	Guard#nv2	105,{
-	mes "[Training Grounds Guard]";
-	if(rand(2)) {
-		mes "Come in!";
-		mes "I would like";
-		mes "to welcome you to";
-		mes "the Training Grounds!";
+	mes "[Guarda do Campo de Treinamento]";
+	if(rand (2)) {
+		mes "Entre!";
+		mes "Eu gostaria de";
+		mes "recebê-lo para";
+		mes "o Campo de Treinamento!";
 		next;
-		mes "[Training Grounds Guard]";
-		mes "In here, you can prepare";
-		mes "yourself for your future";
-		mes "adventures throughout the";
-		mes "Ragnarok world!";
+		mes "[Guarda do Campo de Treinamento]";
+		mes "Aqui você pode preparar";
+		mes "você mesmo para o seu futuro";
+		mes "todas as aventuras no";
+		mes "mundo do Ragnarok!";
 	}
 	else {
-		mes "Go, Novice, go!";
-		mes "Fight, and grow stronger! Look towards a brighter tomorrow!";
+		mes "Vá, Novato, vá!";
+		mes "Lute e fique mais forte! Olhe para um futuro melhor!";
 	}
 	close;
 }
 
-new_2-1,144,107,2	duplicate(Guard#nv2)	Guard#nv2-2	105
-new_3-1,144,107,2	duplicate(Guard#nv2)	Guard#nv3-2	105
-new_4-1,144,107,2	duplicate(Guard#nv2)	Guard#nv4-2	105
-new_5-1,144,107,2	duplicate(Guard#nv2)	Guard#nv5-2	105
+new_2-1,144,107,2	duplicate(Guard#nv2)	Guarda#nv2-2	105
+new_3-1,144,107,2	duplicate(Guard#nv2)	Guarda#nv3-2	105
+new_4-1,144,107,2	duplicate(Guard#nv2)	Guarda#nv4-2	105
+new_5-1,144,107,2	duplicate(Guard#nv2)	Guarda#nv5-2	105
 
 
 // Receptionist
-new_1-2,100,29,4	script	Receptionist#nv1	86,{
-	mes "[Training Grounds Receptionist]";
-	mes "Hello, you look to be new here.";
-	mes "What is your name?";
+new_1-2,100,29,4	script	Receptionista#nv1	86,{
+	mes "[Recepcionista do Campo de Treinamento]";
+mes "Olá, você parece ser novo aqui.";
+mes "Qual é o seu nome?";
 	next;
 	input .@charname$;
 	if (.@charname$!=strcharinfo(0)) {
-		mes "[Training Grounds Receptionist]";
-		mes "Sorry, but I don't think I heard";
-		mes "you correctly";
+		mes "[Recepcionista do Campo de Treinamento]";
+mes "Desculpe, mas eu não acho que ouvi";
+mes "você corretamente";
 		close;
 	}
-	mes "[Training Grounds Receptionist]";
-	mes "Welcome!";
-	mes "You are at the entrance";
-	mes "of the ^3355FFTraining Grounds^000000.";
+mes "[Recepcionista do Campo de Treinamento]";
+mes "Bem vindo!";
+mes "Você está na entrada";
+	mes "do ^3355FFCampo de Treinamento^000000.";
 	next;
-	mes "[Training Grounds Receptionist]";
-	mes "If you're new";
-	mes "to the Ragnarok world,";
-	mes "please choose the";
-	mes "^3355FFTraining Grounds Introduction^000000";
-	mes "menu for more information.";
+	mes "[Recepcionista do Campo de Treinamento]";
+mes "Se você é novo";
+mes "no mundo de Ragnarok";
+mes "por favor escolha a opção";
+mes "^3355FFIntrodução em Campos de Treinamento^000000";
+mes "no menu para mais informações.";
 	next;
 	while (1) {
-		switch(select("Apply for training.:Direct access to Ragnarok Online.:^3355FFTraining Grounds Introduction.^000000:I need a moment to think.")) {
+		switch(select("Candidate-se ao treinamento. Acesse direto ao mundo de Ragnarok Online .:^3355FFIntrodução ao Campo de Treinamento.^000000:Preciso de um tempo para pensar.")) {
 		case 1:
-			mes "[Training Grounds Receptionist]";
-			mes "Thank you for applying for Novice training. For detailed information of each training course, please inquire the Guides for assistance.";
+			mes "[Recepcionista do Campo de Treinamento]";
+mes "Obrigado por se inscrever para o treinamento de Iniciante. Para informações detalhadas de cada curso de treinamento, por favor consulte os Guias para assistência.";
 			next;
-			mes "[Training Grounds Receptionist]";
-			mes "When you have questions about the training course process, please feel free to ask any of the Tutors.";
+			mes "[Recepcionista do Campo de Treinamento]";
+mes "Quando você tiver dúvidas sobre o processo do curso, por favor sinta-se à vontade para perguntar a qualquer um dos Tutores.";
 			next;
-			mes "[Training Grounds Receptionist]";
-			mes "You will now be transferred";
-			mes "to the Training Grounds.";
+			mes "[Recepcionista do Campo de Treinamento]";
+mes "Você será transferido agora";
+mes "para o Campo de Treinamento.";
 			close2;
 			warp "new_1-2",100,70;
 			end;
 		case 2:
-			mes "[Training Grounds Receptionist]";
-			mes "I understand.";
-			mes "Please do your";
-			mes "best, and I wish you";
-			mes "the best of luck!";
+			mes "[Recepcionista do Campo de Treinamento]";
+mes "Eu entendo.";
+mes "Por favor, faça o seu";
+mes "melhor, e eu te desejo";
+mes "a melhor das sortes!";
 			close2;
 			set nov_1st_cos,0;
 			set nov_2nd_cos,0;
@@ -159,45 +160,45 @@ new_1-2,100,29,4	script	Receptionist#nv1	86,{
 			}
 			end;
 		case 3:
-			mes "[Training Grounds Receptionist]";
-			mes "This training grounds was established in order to provide useful information to new players of Ragnarok Online by the Rune-Midgarts Kingdom's Board of Education.";
+			mes "[Recepcionista do Campo de Treinamento]";
+			mes "Este campo de treinamento foi criado para fornecer informações úteis aos novos jogadores do Ragnarok Online pelo Conselho de Educação do Reino de Rune-Midgarts.";
 			next;
-			mes "[Training Grounds Receptionist]";
-			mes "The training course is organized into two parts: the Basic Knowledge classes, and Field Combat training.";
+			mes "[Recepcionista do Campo de Treinamento]";
+			mes "O curso de treinamento é organizado em duas partes: as classes de Conhecimento Básico e o treinamento de Combate em Campo.";
 			next;
-			mes "[Training Grounds Receptionist]";
-			mes "Through the first course, players will learn the necessary knowledge for a smoother gaming experience.";
+			mes "[Recepcionista do Campo de Treinamento]";
+			mes "Através do primeiro curso, os jogadores aprenderão o conhecimento necessário para uma experiência de jogo mais suave.";
 			next;
-			mes "[Training Grounds Receptionist]";
-			mes "In Field Combat Training,";
-			mes "players will engage in actual battle with weak monsters so they can learn the basics of fighting.";
+			mes "[Recepcionista do Campo de Treinamento]";
+			mes "Em Treinamento de Combate em Campo,";
+			mes "os jogadores vão se envolver em batalhas reais com monstros fracos para que eles possam aprender o básico da luta.";
 			next;
-			mes "[Training Grounds Receptionist]";
-			mes "With this battle practice,";
-			mes "players will be able to gain more experience before they enter the real world.";
+			mes "[Recepcionista do Campo de Treinamento]";
+			mes "Com essa prática de batalha,";
+			show "os jogadores serão capazes de ganhar mais experiência antes de entrar no mundo real.";
 			next;
-			mes "[Training Grounds Receptionist]";
-			mes "At the end of the training, we will provide an introduction to the 1st Job Classes. This will help players decide which job class is best for them.";
+			mes "[Recepcionista do Campo de Treinamento]";
+			mes "No final do treinamento, nós forneceremos uma introdução para as primeiras classes de trabalho. Isso ajudará os jogadores a decidir qual classe de trabalho é melhor para eles.";
 			next;
-			mes "[Training Grounds Receptionist]";
-			mes "If you wish to participate in the training grounds, please choose '^3355FFApply for training^000000' in the menu.";
+			mes "[Recepcionista do Campo de Treinamento]";
+			mes "Se você deseja participar dos campos de treinamento, por favor escolha '^3355FFAplique para treinamento ^000000' no menu.";
 			next;
-			mes "[Training Grounds Receptionist]";
-			mes "Otherwise, if you want to skip the basic training and immediately enter the world of Ragnarok Online, please choose '^3355FFDirect access to Ragnarok Online^000000.'";
+			mes "[Recepcionista do Campo de Treinamento]";
+			mes "Caso contrário, se você quiser pular o treinamento básico e entrar imediatamente no mundo do Ragnarok Online, por favor, escolha '^3355FFAcesso direto ao Ragnarok Online ^000000.'";
 			next;
 			break;
 		case 4:
-			mes "[Training Grounds Receptionist]";
-			mes "I understand.";
-			mes "Please, take your time.";
+			mes "[Recepcionista do Campo de Treinamento]";
+			mes "Eu entendo.";
+			mes "Por favor, tome seu tempo.";
 			close;
 		}
 	}
 }	
-new_2-2,100,29,4	duplicate(Receptionist#nv1)	Receptionist#nv2	86
-new_3-2,100,29,4	duplicate(Receptionist#nv1)	Receptionist#nv3	86
-new_4-2,100,29,4	duplicate(Receptionist#nv1)	Receptionist#nv4	86
-new_5-2,100,29,4	duplicate(Receptionist#nv1)	Receptionist#nv5	86
+new_2-2,100,29,4	duplicate(Receptionist#nv1)	Receptionista#nv2	86
+new_3-2,100,29,4	duplicate(Receptionist#nv1)	Receptionista#nv3	86
+new_4-2,100,29,4	duplicate(Receptionist#nv1)	Receptionista#nv4	86
+new_5-2,100,29,4	duplicate(Receptionist#nv1)	Receptionista#nv5	86
 
 new_1-1,53,114,4	script	Shion#nv1	727,{
 	if (nov_get_item04 > 9 || nov_get_item05 > 9) {
