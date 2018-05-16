@@ -10,23 +10,25 @@
 //= Lighthalzen Airport Staff
 //===== Additional Comments: ================================= 
 //= 1.0 First version.
+//===== Traduzido por Rarord:================================= 
+//= 1.0
 //============================================================ 
 
-lhz_airport,143,43,5	script	Airport Staff#lhz_air1a::lhz_airport1	90,{
-	mes "[Airport Staff]";
-	mes "Welcome to the";
-	mes "Lighthalzen Airport,";
-	mes "where we offer nonstop";
-	mes "flights to Einbroch, Juno and Hugel.";
+lhz_airport,143,43,5	script	Equipe_do_Aeroporto#lhz_air1a::lhz_airport1	90,{
+	mes "[Funcionários do Aeroporto]";
+	mes "Bem vindo ao";
+	mes "Aeroporto de Lighthalzen";
+	mes "onde oferecemos sem parar";
+	mes "vôos para Einbroch, Juno e Hugel.";
 	next;
-	if (select("Board the Airship.:Cancel.") == 1) {
-		mes "[Airport Staff]";
-		mes "The boarding fee is";
-		mes "1,200 zeny, but you can";
-		mes "waive the fee if you redeem";
-		mes "a Free Ticket for Airship.";
+	if (select("Embarque.:Cancelar.") == 1) {
+		mes "[Funcionários do Aeroporto]";
+		mes "A taxa de embarque é";
+		mes "1.200 zeny, mas você pode";
+		mes "renuncie a taxa se você resgatar";
+		mes "um bilhete grátis para o dirigível.";
 		next;
-		if (select("Yes:No") == 1) {
+		if (select("Sim:Não") == 1) {
 			if (countitem(7311) > 0) {
 				delitem 7311,1; //Free_Flying_Ship_Ticket
 				warp "lhz_airport",148,51;
@@ -37,49 +39,48 @@ lhz_airport,143,43,5	script	Airport Staff#lhz_air1a::lhz_airport1	90,{
 				warp "lhz_airport",148,51;
 				end;
 			}
-			mes "[Airship Staff]";
-			mes "I'm sorry, but you don't";
-			mes "have 1,200 zeny to pay";
-			mes "for the boarding fee.";
+			mes "[Pessoal de Aeronave]";
+			mes "Sinto muito, mas você não";
+			mes "tem 1.200 zenys para pagar";
+			mes "pela taxa de embarque.";
 			close;
 		}
 	}
-	mes "[Airport Staff]";
-	mes "Thank you and";
-	mes "please come again.";
-	mes "Have a good day~";
+	mes "[Funcionários do Aeroporto]";
+	mes "Obrigado e";
+	mes "por favor, venha novamente.";
+	mes "Tenha um bom dia ~";
 	close;
 }
 
-lhz_airport,158,43,5	duplicate(lhz_airport1)	Airship Staff#lhz_air1b	90
-lhz_airport,126,43,5	duplicate(lhz_airport1)	Airship Staff#lhz_air1c	90
+lhz_airport,158,43,5	duplicate(lhz_airport1)	Equipe_de_Vôo#lhz_air1b	90
+lhz_airport,126,43,5	duplicate(lhz_airport1)	Equipe_de_Vôo#lhz_air1c	90
 
-lhz_airport,143,49,3	script	Arrival Staff#lhz_air2a::lhz_airport2	90,{
-	mes "[Arrival Staff]";
-	mes "Welcome to Lighthalzen Airport.";
-	mes "Please let me guide you to the";
-	mes "main terminal if you are arriving from your flight. Otherwise, please";
-	mes "board the departing Airship to reach your intended destination.";
+lhz_airport,143,49,3	script	Equipe_de_Chegada#lhz_air2a::lhz_airport2	90,{
+	mes "[Funcionários da Chegada]";
+	mes "Bem vindo ao Aeroporto de Lighthalzen.";
+	mes "Por favor, deixe-me guiá-lo para o";
+	mes "terminal principal se você chegar do seu voo. Caso contrário, por favor";
+	mes "embarque no dirigível de partida para chegar ao seu destino pretendido.";
 	next;
-	if (select("Exit to main terminal.:Cancel.") == 1) {
-		mes "[Arrival Staff]";
-		mes "Once you're in the main terminal, you will need to pay the fee again";
-		mes "to board an Airship. You should";
-		mes "only exit if Lighthalzen is your intended destination. Shall we";
-		mes "proceed to the main terminal?";
-		next;
-		if (select("Yes:No") == 1) {
+	if (select("Sair do terminal.:Cancelar.") == 1) {
+		mes "[Funcionários da Chegada]";
+		mes "Quando você estiver no terminal principal, você precisará pagar a taxa novamente";
+		mes "para embarcar em um dirigível. Você deveria";
+		mes "só saia se o seu destino for Lighthalzen. Vamos";
+		mes "prossiga para o terminal principal?";
+		if (select("Sim:Não") == 1) {
 			warp "lhz_airport",142,40;
 			end;
 		}
 	}
-	mes "[Arrival Staff]";
-	mes "Alright, thank you";
-	mes "for your patronage";
-	mes "and I hope you have";
-	mes "a pleasant flight~";
+	mes "[Funcionários da Chegada]";
+	mes "Tudo bem, obrigado";
+	mes "pelo seu patrocínio";
+	mes "e eu espero que você tenha";
+	mes "um vôo agradável ~";
 	close;
 }
 
-lhz_airport,126,51,3	duplicate(lhz_airport2)	Arrival Staff#lhz_air2b	90
-lhz_airport,158,50,3	duplicate(lhz_airport2)	Arrival Staff#lhz_air2c	90
+lhz_airport,126,51,3	duplicate(lhz_airport2)	Equipe_de_Chegada#lhz_air2b	90
+lhz_airport,158,50,3	duplicate(lhz_airport2)	Equipe_de_Chegada#lhz_air2c	90
